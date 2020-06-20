@@ -6,7 +6,6 @@ encoding: UTF-8
 lang: uk_UA
 
 markdown: kramdown
-theme: minima
 
 plugins:
   - jekyll-timeago

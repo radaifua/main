@@ -1,9 +1,11 @@
 ---
 ---
 
-Welcome to My Home Page
+<h2>Привіт, Світ!</h2>
 
-{% assign date = '2020-04-13T10:20:00Z' %}
+<p>{% assign date = '2020-04-13T10:20:00Z' %}</p>
 
-- Original date - {{ date }}
-- With timeago filter - {{ date | timeago }}
+<ul>
+  <li>Оригінальна дата - {{ date }}</li>
+  <li>Дата відфільтрована - {{ date | timeago }}</li>
+</ul>
