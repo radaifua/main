@@ -11,11 +11,15 @@ jobs:
 
     runs-on: ubuntu-latest
     strategy:
-      jekyll:
-        - 3.8.7
+      matrix:
+        jekyll-version: [3.8.7]
 
     steps:
     - uses: actions/checkout@v2
+    - name: Set up Jekyll
+      uses: actions/setup-jekyll@v2
+      with:
+        python-version: ${{ matrix.jekyll-version }}
     - name: Build the site in the jekyll/builder container
       run: |
         docker run \
