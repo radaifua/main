@@ -60,6 +60,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-compose
   - jekyll-redirect-from
+  # The following plugins are always used by GH-Pages
   - jekyll-paginate-v2
 
 exclude:
@@ -73,6 +74,7 @@ exclude:
   - "*.sublime-workspace"
   - .asset-cache
   - .git
+  - .github
   - .bundle
   - .jekyll-assets-cache
   - .sass-cache
