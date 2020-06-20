@@ -4,3 +4,6 @@ url: 'https://www.rada.if.ua'
 
 encoding: UTF-8
 lang: uk_UA
+
+plugins:
+  - jekyll-paginate-v2
