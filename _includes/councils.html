@@ -1,0 +1,410 @@
+
+{% if page.url == "/" %}
+  {% assign page_url = "/" %}
+{% elsif include.url %}
+  {% assign page_url = include.url %}
+{% else %}
+  {% assign page_url = page.url %}
+{% endif %}
+
+{% assign pages = site.pages | sort: 'order' %}
+{% assign parts = page_url | split: '/' %}
+{% assign depth = parts | size %}
+
+{% if page.url == "/" %}
+  {% assign depth = depth | plus:2 %}
+{% elsif include.plus %}
+  {% assign depth = depth | plus:include.plus %}
+{% else %}
+  {% assign depth = depth | plus:1 %}
+{% endif %}
+
+{% assign has_children = false %}
+{% for one in pages %}
+  {% if one.url contains page.url and one.url != page_url %}
+    {% assign has_children = true %}
+  {% endif %}
+{% endfor %}
+
+{% if page.url contains "city" or page.url contains "town" %}{% assign isCityTown = true %}{% else %}{% assign isCityTown = false %}{% endif %}
+
+{% if depth == 2 %}
+
+  {% if has_children == true %}
+    {% for one in pages %}
+      {% if one.url contains page_url %}
+        {% assign one_parts = one.url | split: '/' %}
+        {% assign one_depth = one_parts | size %}
+        {% if one_depth == depth and one.dir != "/" and one.title != "" %}
+          <hr>
+          <h3 class="mb-4">{{ one.title }}</h3>
+          <hr class="mb-4">
+            {% assign one_parts = one.url | split: '/' %}
+            {% assign one_depth = one_parts | size %}
+            {% assign one_depth = one_depth | plus:1 %}
+            {% assign has_children = false %}
+            {% for two in pages %}
+              {% if two.url contains one.url and two.url != one.url %}
+                {% assign has_children = true %}
+              {% endif %}
+            {% endfor %}
+            {% if has_children == true %}
+              <div class="card-columns">
+              {% for two in pages | sort: 'title' %}
+                {% if two.url contains one.url %}
+                  {% assign two_parts = two.url | split: '/' %}
+                  {% assign two_depth = two_parts | size %}
+                  {% if two.url contains "city" or two.url contains "town" %}{% assign isCityTown = true %}{% else %}{% assign isCityTown = false %}{% endif %}
+                  {% if two_depth == one_depth and two.title != "" and isCityTown == false %}
+                    <div class="card">
+                      {% if two.image %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ two.image }}"/>{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+                      <div class="card-body">
+                        {% if two.navtitle %}<h5 class="card-title">{{ two.navtitle }}</h5>{% else %}<h5 class="card-title">{{ two.title }}</h5>{% endif %}
+                        {% if two.description %}<p class="card-text">{{ two.description }}</p>{% endif %}
+                        {% if two.url %}<a href="{{ two.url }}" class="btn btn-primary">{% if two.album.title %}{{ two.album.title }}{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+                      </div>
+                    </div>
+                  {% elsif two_depth == one_depth and two.title != "" and isCityTown == true %}
+                    </div>
+                    <hr>
+                    <h3 class="mb-4">{{ two.title }}</h3>
+                    <hr class="mb-4">
+                    <div class="card-columns">
+                      {% assign two_parts = two.url | split: '/' %}
+                      {% assign two_depth = two_parts | size %}
+                      {% assign two_depth = two_depth | plus:1 %}
+                      {% assign has_children = false %}
+                      {% for three in pages %}
+                        {% if three.url contains two.url and three.url != two.url %}
+                          {% assign has_children = true %}
+                        {% endif %}
+                      {% endfor %}
+                      {% if has_children == true %}
+                        {% for three in pages %}
+                          {% if three.url contains two.url %}
+                            {% assign three_parts = three.url | split: '/' %}
+                            {% assign three_depth = three_parts | size %}
+                            {% if three_depth == two_depth and three.title != ""  %}
+                              <div class="card">
+                                {% if three.image %}<img alt="{{ three.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ three.image }}"/>{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+                                <div class="card-body">
+                                  {% unless two.url contains "city" or two.url contains "town" %}###YES###{% endunless %}
+                                  {% if three.navtitle %}<h5 class="card-title">{{ three.navtitle }}</h5>{% else %}<h5 class="card-title">{{ three.title }}</h5>{% endif %}
+                                  {% if three.description %}<p class="card-text">{{ three.description }}</p>{% endif %}
+                                  {% if three.url %}<a href="{{ three.url }}" class="btn btn-primary">{% if three.album.title %}{{ three.album.title }}{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+                                </div>
+                              </div>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                      {% endif %}
+                    </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+{% elsif depth == 3 %}
+
+  {% if has_children == true %}
+    <div class="card-columns">
+    {% assign 3level = pages | sort_by: "title" %}
+    {% for one in 3level %}
+      {% if one.url contains page_url %}
+        {% assign one_parts = one.url | split: '/' %}
+        {% assign one_depth = one_parts | size %}
+        {% if one.url contains "city" or one.url contains "town" %}{% assign isCityTown = true %}{% else %}{% assign isCityTown = false %}{% endif %}
+        {% if one_depth == depth and one.title != "" and isCityTown == false %}
+          <div class="card">
+            {% if one.image %}<img alt="{{ one.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ one.image }}" />{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+            <div class="card-body">
+              {% if one.navtitle %}<h5 class="card-title">{{ one.navtitle }}</h5>{% else %}<h5 class="card-title">{{ one.title }}</h5>{% endif %}
+              {% if one.description %}<p class="card-text">{{ one.description }}</p>{% endif %}
+              {% if one.url %}<a href="{{ one.url }}" class="btn btn-primary">{% if one.album.title %}{{ one.album.title }}{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+            </div>
+          </div>
+        {% elsif one_depth == depth and one.title != "" and isCityTown == true %}
+          </div>
+          <hr>
+          <h3 class="mb-4">{{ one.title }}</h3>
+          <hr class="mb-4">
+          <div class="card-columns">
+          {% assign one_parts = one.url | split: '/' %}
+          {% assign one_depth = one_parts | size %}
+          {% assign one_depth = one_depth | plus:1 %}
+          {% assign has_children = false %}
+          {% for two in pages %}
+            {% if two.url contains one.url and two.url != one.url %}
+              {% assign has_children = true %}
+            {% endif %}
+          {% endfor %}
+          {% if has_children == true %}
+            {% assign 4level = pages | sort_by: "title" %}
+            {% for two in 4level %}
+              {% if two.url contains one.url %}
+                {% assign two_parts = two.url | split: '/' %}
+                {% assign two_depth = two_parts | size %}
+                {% if two_depth == one_depth and two.title != "" %}
+                  <div class="card">
+                    {% if two.image %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ two.image }}"/>{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+                    <div class="card-body">
+                      {% if two.navtitle %}<h5 class="card-title">{{ two.navtitle }}</h5>{% else %}<h5 class="card-title">{{ two.title }}</h5>{% endif %}
+                      {% if two.description %}<p class="card-text">{{ two.description }}</p>{% endif %}
+                      {% if two.url %}<a href="{{ two.url }}" class="btn btn-primary">{% if two.album.title %}{{ two.album.title }}{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+                    </div>
+                  </div>
+                {% endif %}
+              {% endif %}
+            {% endfor %}
+          {% endif %}
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    </div>
+  {% endif %}
+
+{% elsif depth == 4 and isCityTown == true %}
+
+    {% if has_children == true %}
+      <div class="card-columns">
+      {% for one in pages %}
+        {% if one.url contains page_url %}
+          {% assign one_parts = one.url | split: '/' %}
+          {% assign one_depth = one_parts | size %}
+          {% if one_depth == depth and one.title != "" %}
+            <div class="card">
+              {% if one.image %}<img alt="{{ one.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ one.image }}"/>{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+              <div class="card-body">
+                {% if one.navtitle %}<h5 class="card-title">{{ one.navtitle }}</h5>{% else %}<h5 class="card-title">{{ one.title }}</h5>{% endif %}
+                {% if one.description %}<p class="card-text">{{ one.description }}</p>{% endif %}
+                {% if one.url %}<a href="{{ one.url }}" class="btn btn-primary">{% if one.album.title %}{{ one.album.title }}{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+              </div>
+            </div>
+          {% endif %}
+        {% endif %}
+      {% endfor %}
+      </div>
+    {% endif %}
+
+{% elsif depth == 4 %}
+
+  {% if has_children == true %}
+    {% assign 4levels = site.pages | sort: 'title'  %}
+    {% for one in 4levels %}
+      {% if one.url contains page_url %}
+        {% assign one_parts = one.url | split: '/' %}
+        {% assign one_depth = one_parts | size %}
+        {% if one_depth == depth and one.title != null %}
+          <hr>
+          <h3 class="mb-4">{{ one.title }}</h3>
+          <hr class="mb-4">
+          <div class="card-columns">
+            {% assign one_parts = one.url | split: '/' %}
+            {% assign one_depth = one_parts | size %}
+            {% assign one_depth = one_depth | plus:1 %}
+            {% assign has_children = false %}
+            {% for two in pages %}
+              {% if two.url contains one.url and two.url != one.url %}
+                {% assign has_children = true %}
+              {% endif %}
+            {% endfor %}
+            {% if has_children == true %}
+              {% for two in pages %}
+                {% if two.url contains one.url %}
+                  {% assign two_parts = two.url | split: '/' %}
+                  {% assign two_depth = two_parts | size %}
+                  {% if two_depth == one_depth and two.title != "" %}
+                    <div class="card">
+                      {% if two.image %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ two.image }}"/>{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+                      <div class="card-body">
+                        {% if two.navtitle %}<h5 class="card-title">{{ two.navtitle }}</h5>{% else %}<h5 class="card-title">{{ two.title }}</h5>{% endif %}
+                        {% if two.description %}<p class="card-text">{{ two.description }}</p>{% endif %}
+                        {% if two.url %}<a href="{{ two.url }}" class="btn btn-primary">{% if two.album.title %}{{ two.album.title }}{% elsif two.url contains "deputies" %}Переглянути список{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+{% elsif depth == 5 and isCityTown == true %}
+
+  {% if has_children == true %}
+    {% assign 4levels = site.pages | sort: 'title'  %}
+    {% for one in 4levels %}
+      {% if one.url contains page_url %}
+        {% assign one_parts = one.url | split: '/' %}
+        {% assign one_depth = one_parts | size %}
+        {% if one_depth == depth and one.title != null %}
+          <hr>
+          <h3 class="mb-4">{{ one.title }}</h3>
+          <hr class="mb-4">
+          <div class="card-columns">
+            {% assign one_parts = one.url | split: '/' %}
+            {% assign one_depth = one_parts | size %}
+            {% assign one_depth = one_depth | plus:1 %}
+            {% assign has_children = false %}
+            {% for two in pages %}
+              {% if two.url contains one.url and two.url != one.url %}
+                {% assign has_children = true %}
+              {% endif %}
+            {% endfor %}
+            {% if has_children == true %}
+              {% for two in pages %}
+                {% if two.url contains one.url %}
+                  {% assign two_parts = two.url | split: '/' %}
+                  {% assign two_depth = two_parts | size %}
+                  {% if two_depth == one_depth and two.title != "" %}
+                    <div class="card">
+                      {% if two.image %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ two.image }}"/>{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+                      <div class="card-body">
+                        {% if two.navtitle %}<h5 class="card-title">{{ two.navtitle }}</h5>{% else %}<h5 class="card-title">{{ two.title }}</h5>{% endif %}
+                        {% if two.description %}<p class="card-text">{{ two.description }}</p>{% endif %}
+                        {% if two.url %}<a href="{{ two.url }}" class="btn btn-primary">{% if two.album.title %}{{ two.album.title }}{% elsif two.url contains "deputies" %}Переглянути список{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+                      </div>
+                    </div>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+            {% endif %}
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+  {% endif %}
+
+{% elsif depth == 5 %}
+
+  {% if has_children == true %}
+    <div class="card-columns">
+    {% for one in pages %}
+      {% if one.url contains page_url %}
+        {% assign one_parts = one.url | split: '/' %}
+        {% assign one_depth = one_parts | size %}
+        {% if one_depth == depth and one.title != "" %}
+          <div class="card">
+            {% if one.image %}<img alt="{{ one.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="{{ one.image }}"/>{% else %}<img alt="{{ two.title }} - Герб Ради" class="img-fluid card-img-top pl-3 pt-3 pr-3" src="https://upload.wikimedia.org/wikipedia/commons/9/95/Lesser_Coat_of_Arms_of_Ukraine.svg"/>{% endif %}
+            <div class="card-body">
+              {% if one.navtitle %}<h5 class="card-title">{{ one.navtitle }}</h5>{% else %}<h5 class="card-title">{{ one.title }}</h5>{% endif %}
+              {% if one.description %}<p class="card-text">{{ one.description }}</p>{% endif %}
+              {% if one.url %}<a href="{{ one.url }}" class="btn btn-primary">{% if one.album.title %}{{ one.album.title }}{% else %}Сторінка місцевої ради{% endif %}</a>{% endif %}
+            </div>
+          </div>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    </div>
+  {% endif %}
+
+{% else %}
+
+  {% if has_children == true %}
+    <ul>
+    {% for one in pages %}
+      {% if one.url contains page_url %}
+        {% assign one_parts = one.url | split: '/' %}
+        {% assign one_depth = one_parts | size %}
+        {% if one_depth == depth and one.dir != "/" and one.title != "" %}
+          <li>
+            <a href="{{ one.url }}">{{ one.title }}</a>
+
+            {% assign one_parts = one.url | split: '/' %}
+            {% assign one_depth = one_parts | size %}
+            {% assign one_depth = one_depth | plus:1 %}
+
+            {% assign has_children = false %}
+            {% for two in pages %}
+              {% if two.url contains one.url and two.url != one.url %}
+                {% assign has_children = true %}
+              {% endif %}
+            {% endfor %}
+
+            {% if has_children == true %}
+              <ul>
+              {% for two in pages %}
+                {% if two.url contains one.url %}
+                  {% assign two_parts = two.url | split: '/' %}
+                  {% assign two_depth = two_parts | size %}
+                  {% if two_depth == one_depth and two.title != "" %}
+                    <li>
+                      <a href="{{ two.url }}">{{ two.title }}</a>
+
+                      {% assign two_parts = two.url | split: '/' %}
+                      {% assign two_depth = two_parts | size %}
+                      {% assign two_depth = two_depth | plus:1 %}
+
+                      {% assign has_children = false %}
+                      {% for three in pages %}
+                        {% if three.url contains two.url and three.url != two.url %}
+                          {% assign has_children = true %}
+                        {% endif %}
+                      {% endfor %}
+
+                      {% if has_children == true %}
+                        <ul>
+                        {% for three in pages %}
+                          {% if three.url contains two.url %}
+                            {% assign three_parts = three.url | split: '/' %}
+                            {% assign three_depth = three_parts | size %}
+                            {% if three_depth == two_depth and three.title != "" %}
+                              <li>
+                                <a href="{{ three.url }}">{{ three.title }}</a>
+
+                                {% assign three_parts = three.url | split: '/' %}
+                                {% assign three_depth = three_parts | size %}
+                                {% assign three_depth = three_depth | plus:1 %}
+
+                                {% assign has_children = false %}
+                                {% for four in pages %}
+                                  {% if four.url contains three.url and four.url != three.url %}
+                                    {% assign has_children = true %}
+                                  {% endif %}
+                                {% endfor %}
+
+                                {% if has_children == true %}
+                                  <ul>
+                                  {% for four in pages %}
+                                    {% if four.url contains three.url %}
+                                      {% assign four_parts = four.url | split: '/' %}
+                                      {% assign four_depth = four_parts | size %}
+                                      {% if four_depth == three_depth and four.title != "" %}
+                                        <li>
+                                          <a href="{{ four.url }}">{{ four.title }}</a>
+                                        </li>
+                                      {% endif %}
+                                    {% endif %}
+                                  {% endfor %}
+                                  </ul>
+                                {% endif %}
+
+                              </li>
+                            {% endif %}
+                          {% endif %}
+                        {% endfor %}
+                        </ul>
+                      {% endif %}
+
+                    </li>
+                  {% endif %}
+                {% endif %}
+              {% endfor %}
+              </ul>
+            {% endif %}
+
+          </li>
+        {% endif %}
+      {% endif %}
+    {% endfor %}
+    </ul>
+  {% endif %}
+
+{% endif %}
