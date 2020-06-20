@@ -5,5 +5,9 @@ url: 'https://www.rada.if.ua'
 encoding: UTF-8
 lang: uk_UA
 
+markdown: kramdown
+theme: minima
+
 plugins:
+  - jekyll-timeago
   - jekyll-paginate-v2
