@@ -5,8 +5,70 @@ url: 'https://www.rada.if.ua'
 encoding: UTF-8
 lang: uk_UA
 
+title: Ради в Івано-Франківській області
+description: Представни́цькі органи влади Івано-Франківської області
+name: Місцеві ради
+brand: Рада
+logo: '/assets/images/logo.svg'
+
+contact:
+  name: Вебсайт представни́цьких органів&nbsp;влади
+  address: 76018, м. Івано-Франківськ, вул.&nbsp;С.&nbsp;Стрільців,&nbsp;56
+  phone_main: (067) 433 00 66
+  phone_hot:  (050) 000 00 00
+  phone_fax:  (034) 200 00 00
+  email: info@rada.if.ua
+  www: https://www.rada.if.ua/
+legal:
+  name: Вебсайт представни́цьких органів&nbsp;влади
+  address: 76018, м. Івано-Франківськ, вул.&nbsp;С.&nbsp;Стрільців,&nbsp;56
+  phone:
+    main: (067) 433 00 66
+    hot:  (050) 000 00 00
+    fax:  (034) 200 00 00
+  email: info@rada.if.ua
+  www: https://www.rada.if.ua/
+
+author:
+  name: Vasyl&nbsp;Mosiychuk
+  website: http://www.vasyl.net
+  email: info@vasyl.net
+developer:
+  name: vasyl.net
+  website: http://www.vasyl.net
+  email: info@vasyl.net
+
+defaults:
+  - scope:
+      path: ''
+      type: 'posts'
+    values:
+      layout: 'post'
+  - scope:
+      path: /*/decisions/
+      type: 'decisions'
+    values:
+      layout: 'decisions'
+  - scope:
+      path: /*/news/
+      type: 'news'
+    values:
+      layout: 'news'
+  - scope:
+      path: 'assets/images'
+    values:
+      image: true
+  - scope:
+      path: ''
+      type: 'pages'
+    values:
+      layout: 'default'
+
 markdown: kramdown
 
 plugins:
   - jekyll-timeago
   - jekyll-paginate-v2
+
+exclude:
+  - README.md

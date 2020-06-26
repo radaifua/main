@@ -1,0 +1,30 @@
+{%- if isVillage == false -%}{%- assign decisions = '' | split:'' -%}{%- for i in site.categories[include.cat] -%}{%- unless i.url contains "village" or i.url contains "news" -%}{%- assign decisions = decisions | push:i -%}{%- endunless -%}{%- endfor -%}{% else %}{%- assign decisions = '' | split:'' -%}{%- for i in site.categories[include.cat] -%}{%- unless i.url contains "news" -%}{%- assign decisions = decisions | push:i -%}{%- endunless -%}{%- endfor -%}{%- endif -%}
+{%- for decision in decisions limit:include.num -%}
+  {%- if forloop.first -%}
+  <div class="row row-cols-1 row-cols-md-3 row-cols-sm-2">
+  {%- endif -%}
+  <div class="col mb-4">
+    <div class="card h-100">
+      <div class="card-body">
+        <p class="card-text"><span class="small text-muted">{%- include date.html date=decision.date -%}</span></p>
+        <h5 class="card-title"><a href="{{ decision.url }}">{{ decision.title }}</a></h5>
+        <p class="card-text">{{ decision.excerpt | strip_html | truncate: 110 }}</p>
+      </div>
+    </div>
+  </div>
+  {%- if forloop.last -%}
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-auto ml-auto">
+      <a href="{{page.dir}}decisions/" class="btn btn-primary">{{ site.data.labels.decisions_all }}</a>
+    </div>
+  </div>
+  {%- endif -%}
+{% else %}
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="alert alert-info" role="alert">{{ site.data.labels.decisions_list_empty }}</div>
+    </div>
+  </div>
+{%- endfor -%}

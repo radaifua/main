@@ -1,0 +1,1 @@
+{%- if contact[include.legal] -%}<a href="mailto:{{ contact[include.legal] }}">{{ contact[include.legal] }}</a>{%- else -%}<span class="text-muted">{{ site.data.labels.no_email }}</span>{%- endif -%}

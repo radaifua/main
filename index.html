@@ -1,11 +1,16 @@
 ---
+layout: default
+title: Івано-Франківська область
 ---
+{%- if page.url contains "city" or page.url contains "town" -%}{%- assign isCityTown = true -%}{%- else -%}{%- assign isCityTown = false -%}{%- endif -%}
+{%- if page.url contains "village" -%}{%- assign isVillage = true -%}{%- else -%}{%- assign isVillage = false -%}{%- endif -%}
+<div class="container">
+  <div class="row">
+    <div class="col-12">{% include home/deck.html %}</div>
+  </div>
+</div>
 
-<h2>Привіт, Світ!</h2>
-
-<p>{% assign date = '2020-04-13T10:20:00Z' %}</p>
-
-<ul>
-  <li>Оригінальна дата - {{ date }}</li>
-  <li>Дата відфільтрована - {{ date | timeago }}</li>
-</ul>
+{% comment %}
+{% include home/news-last.html cat='bohorodchany' num="6" %}
+{% include home/decisions-last.html cat='bohorodchany' num="6" %}
+{% endcomment %}
