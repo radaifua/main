@@ -1,0 +1,23 @@
+
+<table
+  id="phones"
+  data-locale="uk-UA"
+  data-toggle="table"
+  data-search="true"
+  data-sort-class="table-active"
+  data-sortable="true"
+  data-detail-view="true"
+  data-detail-view-icon="false"
+  data-detail-view-by-click="true"
+  data-detail-formatter="phonesDetailFormatter"
+  data-pagination="true"
+  data-buttons-class="primary"
+  data-undefined-text="Дані відсутні"
+  data-url="{{ include.dir }}data/09-rada.json">
+  <thead class="thead-rada">
+    <tr>
+      <th data-field="fullname" data-sortable="true" data-formatter="fullnameFormatter" data-title="{{ site.data.labels.fullname }}">Fullname</th>
+      <th data-field="phones" data-title="{{ site.data.labels.phone }}">Phones</th>
+    </tr>
+  </thead>
+</table>

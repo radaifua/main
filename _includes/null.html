@@ -1,0 +1,460 @@
+
+https://github.com/mmistakes/minimal-mistakes/tree/master/_includes
+
+
+{% comment %}
+{%- include icons/t3.svg width="14" height="14" -%}
+{% endcomment %}
+
+{%- include pagination.html dir="/news/" page="page/" -%}
+
+
+
+{% comment %}
+
+{%- capture current -%}{{ one.url | remove: slug | remove: "//" | append: "/" }}{%- endcapture -%}
+
+
+{%- if here | append: "/news/" == page.dir or here | append: "/decisions/" == page.dir or here | append: "/deputies/" == page.dir -%}
+  {%- assign isActive = true -%}
+{%- endif -%}
+
+
+<div class="row mb-4">
+  <div class="col-auto ml-auto">
+    <div class="list-group list-group-horizontal section">
+      {%- if isActive == true -%}
+        <span class="list-group-item list-group-item-action active">Новини</span>
+      {%- else -%}
+        <a href="{{ here | append: "/news/" }}" class="list-group-item list-group-item-action">Новини</a>
+      {%- endif -%}
+      {%- if isActive == true -%}
+        <span class="list-group-item list-group-item-action active">Рішення</span>
+      {%- else -%}
+        <a href="{{ here | append: "/decisions/" }}" class="list-group-item list-group-item-action">Рішення</a>
+      {%- endif -%}
+      {%- if isActive == true -%}
+        <span class="list-group-item list-group-item-action active">Депутати</span>
+      {%- else -%}
+        <a href="{{ here | append: "/deputies/" }}" class="list-group-item list-group-item-action">Депутати</a>
+      {%- endif -%}
+    </div>
+  </div>
+</div>
+
+
+{%- capture active -%}
+{%- if here | append: "/news/" == page.dir -%}{%- assign isActive = true -%}{%- endif -%}
+{%- if here | append: "/decisions/" == page.dir -%}{%- assign isActive = true -%}{%- endif -%}
+{%- if here | append: "/deputies/" == page.dir -%}{%- assign isActive = true -%}{%- endif -%}
+{%- endcapture -%}
+{% endcomment %}
+
+###########################
+
+{% comment %}
+<div class="section-pagination text-center">
+  <nav class="d-table mx-auto">
+    <ul class="pagination">
+      {%- if paginator.previous_page -%}
+        {%- if paginator.previous_page == 1 -%}
+          <li class="page-item"><a class="page-link" href="{{ include.dir }}">&laquo;</a></li>
+        {%- else -%}
+          <li class="page-item"><a class="page-link" href="{{ include.dir }}{{ include.page }}{{ paginator.previous_page }}">&laquo;</a></li>
+        {%- endif -%}
+      {%- else -%}
+        <li class="page-item disabled"><span class="page-link">&laquo;</span></li>
+      {%- endif -%}
+      {%- for i in (1..paginator.total_pages) -%}
+        {%- if i == 1 -%}
+          {%- if paginator.page == i -%}
+            <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+          {%- else -%}
+            <li class="page-item"><a class="page-link" href="{{ include.dir }}">{{ i }}</a></li>
+          {%- endif -%}
+        {%- else -%}
+          {%- if paginator.page == i -%}
+            <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+          {%- else -%}
+            <li class="page-item"><a class="page-link" href="{{ include.dir }}{{ include.page }}{{ i }}">{{ i }}</a></li>
+          {%- endif -%}
+        {%- endif -%}
+      {%- endfor -%}
+      {%- if paginator.next_page -%}
+        <li class="page-item"><a class="page-link" href="{{ include.dir }}{{ include.page }}{{ paginator.next_page }}">&raquo;</a></li>
+      {%- else -%}
+        <li class="page-item disabled"><span class="page-link">&raquo;</span></li>
+      {%- endif -%}
+    </ul>
+  </nav>
+</div>
+{% endcomment %}
+
+
+{%- assign dir = page.dir | split: "/" -%}
+{%- assign size = dir | size | minus:1 -%}
+{%- assign page = dir | slice: 0, size | join: "/" -%}
+{%- assign back = page | split: "/" | last -%}
+{%- assign prev = back | append: "/" -%}
+
+##########################
+
+
+{%- assign news = '' | split:'' -%}
+{%- for i in paginator.posts -%}
+  {%- unless i.url contains "decisions" -%}
+    {%- assign news = news | push:i -%}
+  {%- endunless -%}
+{%- endfor -%}
+
+<div class="row row-cols-1 row-cols-md-3 row-cols-sm-2">
+{%- for article in news -%}
+    <div class="col mb-4">
+      <div class="card h-100">
+        <div class="card-body">
+          <p class="card-text"><span class="small text-muted">{%- include date.html date=article.date -%}</span></p>
+          <h5 class="card-title"><a href="{{ article.url }}">{{ article.title }}</a></h5>
+          <p class="card-text">{{ article.excerpt | strip_html | truncate: 110 }}</p>
+        </div>
+      </div>
+    </div>
+{%- else -%}
+  <div class="row">
+    <div class="col-md-6 offset-md-3">
+      <div class="alert alert-info" role="alert">
+        {{ site.data.labels.news_list_empty }}
+      </div>
+    </div>
+  </div>
+{%- endfor -%}
+</div>
+
+{%- include pagination.html -%}
+
+
+#################################
+
+
+<table
+  id="phones"
+  data-toggle="table"
+  data-search="true"
+  data-detail-view="true"
+  data-detail-view-icon="false"
+  data-detail-view-by-click="true"
+  data-detail-formatter="detailFormatter"
+  data-pagination="true"
+  data-url="json/data5.json">
+  <thead>
+    <tr>
+      <th data-field="column1">Column 1</th>
+      <th data-field="column2">Column 2</th>
+    </tr>
+  </thead>
+</table>
+
+<hr>
+
+<table
+  id="rooms"
+  data-toggle="table"
+  data-search="true"
+  data-detail-view="true"
+  data-detail-view-icon="false"
+  data-detail-view-by-click="true"
+  data-detail-formatter="detailFormatter"
+  data-pagination="true"
+  data-url="json/data1.json">
+  <thead>
+    <tr>
+      <th data-field="id">ID</th>
+      <th data-field="price">Price</th>
+    </tr>
+  </thead>
+</table>
+
+<script>
+  function detailFormatter(index, row) {
+    var html = []
+    const title = {
+      'id': 'ID',
+      'price': 'Price'
+    }
+    $.each(row, function (key, value) {
+      html.push('<p><b>' + title[key] + ':</b> ' + value + '</p>')
+    })
+    return html.join('')
+  }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{%- assign dir = page.dir | split: "/" | last -%}
+
+
+{%- assign dir = page.dir | split: "/" -%}
+{%- assign size = dir | size | minus:1 -%}
+{%- assign cat = back | slice: 0, size | join: "/" -%}
+{%- assign cat = cat | split: "/" | last -%}
+{%- assign phones = cat | append: "-tel" -%}
+{{ site.data[phones] | jsonify }}
+
+{% comment %}
+{{ back | slice: 0, size | join: "/" }}
+{%- assign foo = back | split: "/" | last -%}
+foo: {{foo}}
+{% endcomment %}
+
+
+
+{% comment %}
+<link rel="stylesheet" href="{{ "/assets/css/photoswipe.css" | relative_url }}">
+<link rel="stylesheet" href="{{ "/assets/css/default-skin/default-skin.css" | relative_url }}">
+{% endcomment %}
+
+{% comment %}
+
+{% include header/skippy.html %}
+
+{% include header/navbar.html %}
+
+{% endcomment %}
+
+{%- include image-slider.html folder="/district/town/tysmienica/images/rada" group="rada" width="365" height="250" -%}
+
+<svg class="bd-placeholder-img" width="100%" height="250" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice" focusable="false" role="img" aria-label="Placeholder: Image"><title>Placeholder</title><rect width="100%" height="100%" fill="#868e96"></rect><text x="50%" y="50%" fill="#dee2e6" dy=".3em">Image</text></svg>
+
+ {% increment counter %}
+
+{% comment %}
+    {% if isCityTown == true and isVillage == true %}
+      {{ site.data.labels.ustriy | capitalize }} {% if type == site.data.labels.selishche %}{{ site.data.labels.selyshcha }}{% else %}{{ site.data.labels.sela }}{% endif %}
+    {% elsif isVillage == true %}
+      {{ site.data.labels.ustriy | capitalize }} {% if type == site.data.labels.selishche %}{{ site.data.labels.selyshcha }}{% else %}{{ site.data.labels.sela }}{% endif %}
+    {% elsif isCityTown == true %}
+      {{ site.data.labels.villages_and | capitalize }} {{ site.data.labels.mista }}
+    {%- elsif page.url contains "region" and isCityTown == false and isVillage == false -%}
+      {{ site.data.labels.oblasti }}
+    {% else %}
+      {{ site.data.labels.villages_and | capitalize }} {{ site.data.labels.rayonu }}
+    {% endif %}
+{% endcomment %}
+
+{% comment %}
+
+{%- for decisions in site.categories.bohorodchany %}
+  {% unless decisions.url contains "news" %}
+    {{ decisions.title }}<br><br>
+  {% endunless %}
+{%- endfor -%}
+
+{% include decisions-list.html cat=page.pagination.category %}
+
+{% endcomment %}
+
+{% comment %}
+  {%- capture name -%}X{%- include footer/contacts.html legal="name" -%}{%- endcapture -%}
+  {%- if name == "X" -%}
+    {{ site.contact.name }}
+  {%- else -%}
+    {%- include footer/contacts.html legal="name" -%}
+  {%- endif -%}
+
+  {%- include footer/contacts.html legal="name" -%}
+
+{% endcomment %}
+
+{% comment %}
+{%- assign url = page.url | split: "/" -%}
+{%- assign size = url | size | minus: 1 -%}{%- assign dir = url | slice: 0, size | join: "/" -%}
+{% endcomment %}
+
+{% comment %}
+{% endcomment %}
+
+
+{% comment %}
+
+{%- if size == 3 -%}
+  {%- include footer/legal.html dir=dir legal=include.legal type=include.type -%}
+{%- elsif size == 4 -%}
+  {%- assign size = url | size | minus: 2 -%}
+  {%- assign dir = url | slice: 0, size | join: "/" -%}
+  {%- include footer/legal.html dir=dir legal=include.legal type=include.type -%}
+{%- elsif size == 7 -%}
+  {%- assign size = url | size | minus: 5 -%}
+  {%- assign dir = url | slice: 0, size | join: "/" -%}
+  {%- include footer/legal.html dir=dir legal=include.legal type=include.type -%}
+{%- elsif size == 8 -%}
+  {%- assign size = url | size | minus: 6 -%}
+  {%- assign dir = url | slice: 0, size | join: "/" -%}
+  {%- include footer/legal.html dir=dir legal=include.legal type=include.type -%}
+{%- elsif size <= 2 -%}
+  {%- if include.legal == "name" -%}
+    {%- include footer/name.html legal=include.legal -%}
+  {%- elsif include.legal == "phone" -%}
+    {%- include footer/phone.html legal=include.legal type=include.type -%}
+  {%- elsif include.legal == "email" -%}
+    {%- include footer/email.html legal=include.legal -%}
+  {%- else -%}
+    {%- if page.legal[include.legal] -%}{{ page.legal[include.legal] }}{%- else -%}{{ site.legal[include.legal] }}{%- endif -%}
+  {%- endif -%}
+{%- else -%}
+{%- endif -%}
+
+{% endcomment %}
+
+
+{% comment %}
+<div id="carousel-home" class="carousel carousel-small carousel-fade slide" data-interval="5000" data-wrap="true" data-ride="carousel">
+  <div class="carousel-inner">
+    <div class="item active carousel-item carousel-item-type bg-primary" data-itemno="0">
+      <div class="carousel-backgroundimage-container">
+        <div id="carousel-backgroundimage-home-1" class="carousel-backgroundimage">
+          <style>
+            #carousel-backgroundimage-home-1 {
+              background-image: url('/district/bohorodchany/images/gallery/home/1-bohorodchany-rayon-top-view.jpg');
+            }
+            @media (min-width: 576px) {
+              #carousel-backgroundimage-home-1 { background-image: url('/district/bohorodchany/images/gallery/home/1-bohorodchany-rayon-top-view.jpg'); }
+            }
+            @media (min-width: 768px) {
+              #carousel-backgroundimage-home-1 { background-image: url('/district/bohorodchany/images/gallery/home/1-bohorodchany-rayon-top-view.jpg'); }
+            }
+            @media (min-width: 992px) {
+              #carousel-backgroundimage-home-1 { background-image: url('/district/bohorodchany/images/gallery/home/1-bohorodchany-rayon-top-view.jpg'); }
+            }
+            @media (min-width: 1200px) {
+              #carousel-backgroundimage-home-1 { background-image: url('/district/bohorodchany/images/gallery/home/1-bohorodchany-rayon-top-view.jpg'); }
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+    <div class="item carousel-item carousel-item-type bg-primary" data-itemno="1">
+      <div class="carousel-backgroundimage-container">
+        <div id="carousel-backgroundimage-home-2" class="carousel-backgroundimage">
+          <style>
+            #carousel-backgroundimage-home-2 {
+              background-image: url('/district/bohorodchany/images/gallery/home/2-ukrainian-republic.jpg');
+            }
+            @media (min-width: 576px) {
+              #carousel-backgroundimage-home-2 { background-image: url('/district/bohorodchany/images/gallery/home/2-ukrainian-republic.jpg'); }
+            }
+            @media (min-width: 768px) {
+              #carousel-backgroundimage-home-2 { background-image: url('/district/bohorodchany/images/gallery/home/2-ukrainian-republic.jpg'); }
+            }
+            @media (min-width: 992px) {
+              #carousel-backgroundimage-home-2 { background-image: url('/district/bohorodchany/images/gallery/home/2-ukrainian-republic.jpg'); }
+            }
+            @media (min-width: 1200px) {
+              #carousel-backgroundimage-home-2 { background-image: url('/district/bohorodchany/images/gallery/home/2-ukrainian-republic.jpg'); }
+            }
+          </style>
+        </div>
+      </div>
+    </div>
+  </div>
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-home" data-slide-to="0" class="active">
+      <span>Image 0</span>
+    </li>
+    <li data-target="#carousel-home" data-slide-to="1" class="">
+      <span>Image 1</span>
+    </li>
+  </ol>
+  <a data-slide="prev" role="button" class="left carousel-control carousel-control-prev" href="#carousel-home">
+    <span class="carousel-control-icon carousel-control-prev-icon"></span>
+    <span class="sr-only">Previous</span>
+  </a>
+  <a data-slide="next" role="button" class="right carousel-control carousel-control-next" href="#carousel-home">
+    <span class="carousel-control-icon carousel-control-next-icon"></span>
+    <span class="sr-only">Next</span>
+  </a>
+</div>
+{% endcomment %}
+
+
+
+{% comment %}
+
+{%- for news in site.categories.bohorodchany %}
+  {% unless news.url contains "decisions" %}
+    {{ news.title }}<br><br>
+  {% endunless %}
+{%- endfor -%}
+
+{% include news-list.html cat=page.pagination.category %}
+
+{%- for news in site.categories.news %}
+  {% if news.url contains "bohorodchany" %}
+    {{ news.title }}<br><br>
+  {% endif %}
+{%- endfor -%}
+
+{% endcomment %}
+
+{% comment %}
+
+<div class="row row-cols-1 row-cols-md-3 row-cols-sm-2">
+{% for article in paginator.posts %}
+  <div class="col mb-4">
+    <div class="card h-100">
+      <img src="/images/deputies.png" class="card-img-top" alt="image-news">
+      <div class="card-body">
+        <p class="card-text"><span class="small text-muted">{{ article.date | date: '%-d %B %Y' }}</span></p>
+        <h5 class="card-title"><a href="{{ article.url }}">{{ article.title }}</a></h5>
+        <p class="card-text">{{ article.excerpt | truncate: 110 }}</p>
+        <p class="card-text"><span class="small text-muted">{{ article.category }}</span></p>
+      </div>
+    </div>
+  </div>
+{% endfor %}
+</div>
+
+<hr>
+
+{% if paginator.total_pages > 1 %}
+<div class="row justify-content-between">
+    {% if paginator.previous_page %}
+    <div class="col-md-3 col-5 text-left text-nowrap">
+      <p>&larr; <a href="{{ paginator.previous_page_path | prepend: site.baseurl | replace: '//', '/' }}">Новіші новини</a></p>
+    </div>
+    {% else %}
+    <div class="col-md-3 col-5 text-left text-nowrap">
+      <p>&larr; <span>Новіші новини</span></p>
+    </div>
+    {% endif %}
+    {% if paginator.next_page %}
+    <div class="col-md-3 col-5 text-right text-nowrap">
+      <p><a href="{{ paginator.next_page_path | prepend: site.baseurl | replace: '//', '/' }}">Старіші новини</a> &rarr;</p>
+    </div>
+    {% else %}
+    <div class="col-md-3 col-4 text-right text-nowrap">
+      <p><span>Старіші новини</span> &rarr;</p>
+    </div>
+    {% endif %}
+</div>
+{% endif %}
+
+{% endcomment %}
