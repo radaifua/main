@@ -64,8 +64,6 @@ defaults:
     values:
       layout: 'default'
 
-markdown: kramdown
-
 plugins:
   - jekyll-timeago
   - jekyll-paginate-v2
