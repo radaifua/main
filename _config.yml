@@ -8,6 +8,3 @@ lang: uk_UA
 plugins:
   - jekyll-timeago
   - jekyll-paginate-v2
-
-exclude:
-  - README.md
