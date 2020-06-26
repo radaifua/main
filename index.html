@@ -2,15 +2,5 @@
 layout: default
 title: Івано-Франківська область
 ---
-{%- if page.url contains "city" or page.url contains "town" -%}{%- assign isCityTown = true -%}{%- else -%}{%- assign isCityTown = false -%}{%- endif -%}
-{%- if page.url contains "village" -%}{%- assign isVillage = true -%}{%- else -%}{%- assign isVillage = false -%}{%- endif -%}
-<div class="container">
-  <div class="row">
-    <div class="col-12">{% include home/deck.html %}</div>
-  </div>
-</div>
 
-{% comment %}
-{% include home/news-last.html cat='bohorodchany' num="6" %}
-{% include home/decisions-last.html cat='bohorodchany' num="6" %}
-{% endcomment %}
+<p>Hello, World!</p>
