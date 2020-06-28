@@ -88,6 +88,7 @@ deputies: депутати
 deputies_number: №
 deputies_name: Прізвище ім'я по батькові
 deputies_about: Про депутата
+deputies_okruh: Виборчий округ
 deputies_no_data: Дані на даний момент відсутні...
 deputies_no_data_alert: Якщо у вас є ці дані, надішліть нам, а ми їх опублікуємо тут...
 deputies_all: Усі скликання
@@ -96,6 +97,7 @@ deputies_list_description: Перелік депутатів місцевої р
 deputies_list_description_year: році
 deputies_list_empty: Списків поки що немає :(
 deputies_back_list: Повернутися до спсику скликань
+deputies_text_1991: обраних на чергових місцевих виборах України починаючи з 1991 року
 #
 # Villages
 #
