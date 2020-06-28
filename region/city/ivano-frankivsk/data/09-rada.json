@@ -1,0 +1,10 @@
+---
+layout: null
+---
+
+{%- assign back = page.dir | split: "/" -%}
+{%- assign size = back | size | minus:1 -%}
+{%- assign pass = back | slice: 0, size | join: "/" -%}
+{%- assign cat = pass | split: "/" | last -%}
+{%- assign phoners = cat | append: "-rada-tel" -%}
+{{ site.data[phoners] | jsonify }}
