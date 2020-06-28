@@ -105,7 +105,7 @@ layout: default
             </div>
           </div>
           {%- include has-children.html where="deputies/" -%}
-          {%- if hasNews == true or hasDecisions == true or hasChildren == true -%}
+          {%- if hasNews == true or hasDecisions == true or hasChildren == true or phoners -%}
           <ul class="nav nav-tabs" id="radaTab" role="tablist">
             {%- if hasNews == true -%}
             <li class="nav-item" role="presentation">
