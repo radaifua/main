@@ -25,8 +25,8 @@ contact:
   name: Вебсайт представни́цьких органів&nbsp;влади
   address: 76018, м. Івано-Франківськ, вул.&nbsp;С.&nbsp;Стрільців,&nbsp;56
   phone_main: (067) 433 00 66
-  phone_hot:  (050) 000 00 00
-  phone_fax:  (034) 200 00 00
+  phone_hot:  (067) 433 00 66
+  phone_fax:  (067) 433 00 66
   email: info@rada.if.ua
   www: https://www.rada.if.ua/
 
@@ -35,8 +35,8 @@ legal:
   address: 76018, м. Івано-Франківськ, вул.&nbsp;С.&nbsp;Стрільців,&nbsp;56
   phone:
     main: (067) 433 00 66
-    hot:  (050) 000 00 00
-    fax:  (034) 200 00 00
+    hot:  (067) 433 00 66
+    fax:  (067) 433 00 66
   email: info@rada.if.ua
   www: https://www.rada.if.ua/
 
