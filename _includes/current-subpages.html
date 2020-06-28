@@ -55,6 +55,11 @@
       {%- endif -%}
         <div class="col mb-4">
           <div class="card h-100">
+            {%- assign slug = village.dir | split: "/" | last -%}
+            {%- assign dir = village.dir | append: 'images/' -%}
+            {%- assign path = slug | prepend: dir | append: '.jpg' -%}
+            {%- assign file = site.static_files | where: "path", path | first -%}
+            {%- if file -%}<img src="//images.weserv.nl/?url={{ site.url | replace: 'http://','' | replace: 'https://','' }}{{ file.path | url_decode | relative_url }}&w=345&h=150&fit=cover&a=attention&output=jpg&q=50&t=square" class="card-img-top" alt="{{slug}}">{%- endif -%}
             <div class="card-body">
               <h5 class="card-title">
                 <a href="{{ village.url }}">
