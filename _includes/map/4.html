@@ -20,6 +20,7 @@
       <a href="{{ six.url }}">
         {%- if six.navtitle -%}{{ six.navtitle }}{%- else -%}{{ six.title }}{%- endif -%}
       </a>
+      {%- include map/5.html current=six.url -%}
     </li>
     {%- endif -%}
   {%- endfor -%}
