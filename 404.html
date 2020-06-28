@@ -1,19 +1,18 @@
 ---
 layout: default
-title: Помилка 404 - Сторінку не знайдено
+title: Помилка 404 - Cторінку не знайдено :(
 ---
 
 <div class="container">
   <div class="row">
     <div class="col-12">
+      <h1>{{ page.title | split: "-" | first }} <span class="small text-muted">{{ page.title | split: "-" | last }}</span></h1>
       <div class="card bg-dark text-white">
         {%- assign file = "assets/images/404.jpg" -%}
         <img src="//images.weserv.nl/?url={{ site.url | replace: 'http://','' | replace: 'https://','' }}{{ file | url_decode | relative_url }}&w=1100&h=619&fit=cover&a=attention&output=jpg&q=50&t=square" class="card-img-top" alt="404 error">
         <div class="card-img-overlay">
-          <h5 class="card-title">Помилка 404</h5>
-          <p class="card-text"><strong>Сторінку не знайдено :(</strong></p>
-          <p class="card-text">Довелося довго шукали але не вдалося знайти запитувану сторінку.</p>
-          <p class="card-text">Спробуйте подивитись <a href="#mapsite">мапу вебсайту</a>.</p>
+          <h5 class="card-title">Довелося довго шукали але не вдалося знайти запитувану сторінку.</h5>
+          <p class="card-text">Спробуйте подивитись <a class="text-white" href="#mapsite">мапу вебсайту</a>.</p>
         </div>
       </div>
     </div>
