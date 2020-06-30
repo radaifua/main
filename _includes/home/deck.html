@@ -6,11 +6,10 @@
     {%- if "/" == current and one.navhide != 1 -%}
       <div class="col-12">
         <h3 class="mb-4">
-          {%- if one.url contains "/region/" -%}Іва́но-Франкі́вська{%- endif -%}
+          {% if one.url contains "/region/" %}Іва́но-Франкі́вська {% endif %}
           <a href="{{ one.url }}">
-            {%- if one.navtitle -%}{{ one.navtitle }}{%- else -%}{{ one.title }}{%- endif -%}
+            {%- if one.navtitle -%}{{ one.navtitle | downcase }}{%- else -%}{{ one.title | downcase }}{%- endif -%}
           </a>
-          {%- if one.url contains "/region/city/" -%} в Іва́но-Франкі́вській о́бласті{%- endif -%}
         </h3>
       </div>
       <div class="col-12">
@@ -28,6 +27,7 @@
                 <a href="{{ two.url }}">
                   {%- if two.navtitle -%}{{ two.navtitle }}{%- else -%}{{ two.title }}{%- endif -%}
                 </a>
+                {% if two.url contains "/region/city/" or two.url contains "/district/" or two.url contains "/district/town/" %} в Іва́но-Франкі́вській о́бласті{% endif %}
               </h3>
             </div>
             <div class="col-12">
