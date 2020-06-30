@@ -12,7 +12,7 @@
           {%- else -%}
             {%- if one.navtitle -%}{{ one.navtitle }}{%- else -%}{{ one.title }}{%- endif -%}
           {%- endif -%}
-          {% if two.url contains "/region/city/" or two.url contains "/district/town/" %} {{ site.data.labels.deck_region_in }}{% endif %}
+          {% if one.url contains "/district/" %} {{ site.data.labels.deck_region_in }}{% endif %}
         </h1>
       </div>
       <div class="col-12">{%- include home/region.html current=one.url -%}</div>
