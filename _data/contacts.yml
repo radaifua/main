@@ -17,12 +17,62 @@
 - type: city
   item: ivano-frankivsk
   name: Івано-Франківська міська&nbsp;рада
-  address: 76004, м. Івано-Франківськ, вул.&nbsp;М.&nbsp;Грушевського,&nbsp;21
+  address: 76004, м. Івано-Франківськ, вул.&nbsp;Михайла&nbsp;Грушевського,&nbsp;21
   phone_main: (034) 255 65 15
   phone_hot:  (034) 255 60 20
   phone_fax:  (034) 255 60 20
   email: mvk@mvk.if.ua
   www: http://www.mvk.if.ua
+
+- type: city
+  item: burshtyn
+  name: Бурштинська міська&nbsp;рада
+  address: 77111, м. Бурштин, вул.&nbsp;Січових&nbsp;Стрільців,&nbsp;4
+  phone_main: (034) 384 49 36
+  phone_hot:  (034) 383 35 54
+  phone_fax:  (034) 383 35 54
+  email: rada@burshtyn-rada.if.gov.ua
+  www: http://burshtyn-rada.if.gov.ua/
+
+- type: city
+  item: bolekhiv
+  name: Болехівська міська&nbsp;рада
+  address: 77202, м. Болехів, вул.&nbsp;Івана&nbsp;Франка,&nbsp;12
+  phone_main: (034) 373 42 52
+  phone_hot:  (034) 373 42 52
+  phone_fax:  (034) 373 42 52
+  email: mvk@bolekhiv-rada.gov.ua
+  www: https://bolekhiv-rada.gov.ua/
+
+- type: city
+  item: kalush
+  name: Калуська міська&nbsp;рада
+  address: 77300, м. Калуш, вул.&nbsp;Івана&nbsp;Франка,&nbsp;1
+  phone_main: (034) 726 28 01
+  phone_hot:  (034) 726 28 29
+  phone_fax:  (034) 726 28 29
+  email: kmrkontrol@gmail.com
+  www: https://kalushcity.gov.ua/
+
+- type: city
+  item: kolomyia
+  name: Коломийська міська&nbsp;рада
+  address: 78203, м. Коломия, вул.&nbsp;Михайла&nbsp;Грушевського,&nbsp;1
+  phone_main: (034) 335 07 60
+  phone_hot:  (034) 335 08 23
+  phone_fax:  (034) 335 08 23
+  email: tower.ko@ukr.net
+  www: http://kolrada.gov.ua/
+
+- type: city
+  item: yaremche
+  name: Яремчанська міська&nbsp;рада
+  address: 78501, м. Яремче, вул.&nbsp;Свободи,&nbsp;266
+  phone_main: (034) 342 30 07
+  phone_hot:  (034) 342 30 08
+  phone_fax:  (034) 342 22 79
+  email: jar_mvk@ukr.net
+  www: https://yaremcha-miskrada.gov.ua/
 
 #
 # City / Village
