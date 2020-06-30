@@ -6,15 +6,15 @@
     {%- if "/" == current and one.navhide != 1 -%}
       <div class="col-12">
         {% if one.url contains "/region/" %}
-          {% if one.url contains "/region/" %}{{ site.data.labels.deck_region }} {% endif %}
           <h1 class="mb-4">
+            {% if one.url contains "/region/" %}{{ site.data.labels.deck_region }} {% endif %}
             <a href="{{ one.url }}">{%- if one.navtitle -%}{{ one.navtitle | downcase }}{%- else -%}{{ one.title | downcase }}{%- endif -%}</a>
           </h1>
         {% else %}
           <h2 class="mb-4">
             <a href="{{ one.url }}">{%- if one.navtitle -%}{{ one.navtitle }}{%- else -%}{{ one.title }}{%- endif -%}</a>
+            {% if one.url contains "/district/" %} {{ site.data.labels.deck_region_in }}{% endif %}
           </h2>
-          {% if one.url contains "/district/" %} {{ site.data.labels.deck_region_in }}{% endif %}
         {% endif %}
       </div>
       <div class="col-12">

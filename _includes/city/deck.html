@@ -5,7 +5,10 @@
     {%- capture current -%}{{ one.url | remove: slug | remove: "//" | append: "/" }}{%- endcapture -%}
     {%- if include.dir == current and one.url contains include.current -%}
       <div class="col-12">
-        <h3 class="mb-4">{%- if one.navtitle -%}{{ one.navtitle }}{%- else -%}{{ one.title }}{%- endif -%}</h3>
+        <h1 class="mb-4">
+          {%- if one.navtitle -%}{{ one.navtitle }}{%- else -%}{{ one.title }}{%- endif -%}
+          {% if two.url contains "/region/city/" or two.url contains "/district/town/" %} {{ site.data.labels.deck_region_in }}{% endif %}
+        </h1>
       </div>
       <div class="col-12">{%- include home/region.html current=one.url -%}</div>
     {%- endif -%}
