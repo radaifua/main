@@ -42,6 +42,10 @@ legal:
 
 defaults:
   - scope:
+      path: /*/data/*.json
+    values:
+      sitemap: false
+  - scope:
       path: ""
       type: "posts"
     values:
@@ -67,6 +71,7 @@ defaults:
       layout: "default"
 
 plugins:
+  - jekyll-sitemap
   - jekyll-timeago
   - jekyll-paginate-v2
 
