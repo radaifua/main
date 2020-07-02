@@ -274,14 +274,14 @@
 # District / Town
 #
 - type: town
-  item: tysmienica
-  name: Тисменицька міська&nbsp;рада
-  address: 77401, м. Тисмениця, вул.&nbsp;Галицька,&nbsp;32
-  phone_main: (034) 362 44 54
-  phone_hot:  (034) 362 11 16
-  phone_fax:  (034) 362 13 92
-  email: tismenicja@gmail.com
-  www: немає даних
+  item: dolyna
+  name: Доли́нська міська&nbsp;рада
+  address: 77500, м. Доли́на, проспект&nbsp;Незалежності,&nbsp;5
+  phone_main: (034) 772 70 30
+  phone_hot:  (034) 772-70 35
+  phone_fax:  (034) 772 70 35
+  email: rada.dolyna.info@gmail.com
+  www: https://dolyna.if.ua/
 
 - type: town
   item: halych
@@ -292,6 +292,76 @@
   phone_fax:  (034) 312 21 88
   email: galych-rada@ukr.net
   www: http://www.galych-rada.if.ua/
+
+- type: town
+  item: horodenka
+  name: Городе́нківська міська&nbsp;рада
+  address: 78100, м. Городе́нка, вул.&nbsp;Шевченка,&nbsp;77
+  phone_main: (034) 302 15 16
+  phone_hot:  (034) 302 22 15
+  phone_fax:  (034) 302 22 15
+  email: gmr.if.ua@gmail.com
+  www: https://hth.gov.ua/
+
+- type: town
+  item: kosiv
+  name: Ко́сівська міська&nbsp;рада
+  address: 78600, м. Ко́сів, майдан&nbsp;Незалежності,&nbsp;11
+  phone_main: (034) 782 12 56
+  phone_hot:  (034) 782 12 56
+  phone_fax:  (034) 782 12 56
+  email: kosiv.rada@gmail.com
+  www: https://kosivmr.if.ua/
+
+- type: town
+  item: nadvirna
+  name: Надві́рнянська міська&nbsp;рада
+  address: 78400, м. Надві́рна, вул.&nbsp;Мазепи,&nbsp;29
+  phone_main: (034) 752 30 24
+  phone_hot:  (034) 752 90 78
+  phone_fax:  (034) 752 23 05
+  email: nadvirna_mr@ukr.net
+  www: http://nadvirnamr.gov.ua/
+
+- type: town
+  item: rohatyn
+  name: Рогати́нська міська&nbsp;рада
+  address: 77001, м. Рогати́н, вул.&nbsp;Шевченка,&nbsp;5
+  phone_main: (034) 352 13 64
+  phone_hot:  (034) 352 13 64
+  phone_fax:  (034) 352 23 60
+  email: rohatyn.mr@gmail.com
+  www: https://rohatyncity.if.ua/
+
+- type: town
+  item: sniatyn
+  name: Сня́тинська міська&nbsp;рада
+  address: 78300, м. Сня́тин, вул.&nbsp;Шевченка,&nbsp;70
+  phone_main: (034) 762 51 12
+  phone_hot:  (034) 762 51 12
+  phone_fax:  (034) 762 51 12
+  email: info@snyatyn.if.ua
+  www: http://www.snyatyn.if.ua/
+
+- type: town
+  item: tlumach
+  name: Тлу́мацька міська&nbsp;рада
+  address: 78001, м. Тлу́мач, вул.&nbsp;Івана&nbsp;Макуха,&nbsp;2
+  phone_main: (034) 792 20 74
+  phone_hot:  (034) 792 20 74
+  phone_fax:  (034) 792 20 74
+  email: tlumachmr@ukr.net
+  www: https://tlumacka-gromada.gov.ua/
+
+- type: town
+  item: tysmienica
+  name: Тисменицька міська&nbsp;рада
+  address: 77401, м. Тисмениця, вул.&nbsp;Галицька,&nbsp;32
+  phone_main: (034) 362 44 54
+  phone_hot:  (034) 362 11 16
+  phone_fax:  (034) 362 13 92
+  email: tismenicja@gmail.com
+  www: немає даних
 
 #
 # District / Village
