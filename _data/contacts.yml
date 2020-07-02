@@ -131,14 +131,124 @@
 # District
 #
 - type: district
-  item: bohorodchany
+  item: bohorodchanskyy
   name: Богородча́нська райо́нна&nbsp;рада
   address: 77701, с.м.т. Богородча́ни, вул.&nbsp;Шевченка,&nbsp;66
   phone_main: (034) 712 41 99
   phone_hot:  (034) 712 41 99
   phone_fax:  (034) 712 41 99
   email: rairada@ukrpost.ua
-  www: http://www.rada.if.ua/
+  www: http://www.bohorada.if.ua/
+
+- type: district
+  item: dolynskyy
+  name: Доли́нська райо́нна&nbsp;рада
+  address: 77500, м. Доли́на, вул.&nbsp;Незалежності,&nbsp;5
+  phone_main: (034) 772 70 10
+  phone_hot:  (034) 772 70 15
+  phone_fax:  (034) 772 70 11
+  email: dolinarada@i.ua
+  www: немає даних
+
+- type: district
+  item: galician
+  name: Га́лицька райо́нна&nbsp;рада
+  address: 77100, м. Га́лич, вул.&nbsp;Площа&nbsp;Волі,&nbsp;1
+  phone_main: (034) 312 16 73
+  phone_hot:  (034) 312 27 81
+  phone_fax:  (034) 312 28 53
+  email: galrayrada2006@meta.ua
+  www: https://www.galytskarada.in.ua/
+
+- type: district
+  item: horodenkivskyy
+  name: Городе́нківська райо́нна&nbsp;рада
+  address: 78100, м. Городе́нка, вул.&nbsp;Богуна,&nbsp;11
+  phone_main: (034) 302 24 08
+  phone_hot:  (034) 302 13 64
+  phone_fax:  (034) 302 13 64
+  email: rada@gorrayrada.if.ua
+  www: http://www.gorrayrada.if.ua/
+
+- type: district
+  item: kaluskyy
+  name: Ка́луська райо́нна&nbsp;рада
+  address: 77300, м. Ка́луш, вул.&nbsp;Шевченка,&nbsp;6
+  phone_main: (034) 726 01 70
+  phone_hot:  (034) 726 03 69
+  phone_fax:  (034) 726 20 74
+  email: krr-if@ukr.net
+  www: http://kalushrr.gov.ua/
+
+- type: district
+  item: kolomyyskyy
+  name: Коломи́йська райо́нна&nbsp;рада
+  address: 78200, м. Коломи́я, вул.&nbsp;Верещинського,&nbsp;17
+  phone_main: (034) 334 75 93
+  phone_hot:  (034) 334 70 31
+  phone_fax:  (034) 334 70 31
+  email: kolomiyrada@gmail.com
+  www: немає даних
+
+- type: district
+  item: kosivskyy
+  name: Ко́сівська райо́нна&nbsp;рада
+  address: 78600, м. Ко́сів, майдан&nbsp;Незалежності,&nbsp;11&nbsp;(2&nbsp;поверх)
+  phone_main: (034) 782 46 30
+  phone_hot:  (034) 782 46 30
+  phone_fax:  (034) 782 46 30
+  email: rada.kosiv@gmail.com
+  www: https://kosivrada.if.ua/
+
+- type: district
+  item: nadvirnyanskyy
+  name: Надвірня́нська райо́нна&nbsp;рада
+  address: 78400, м. Надвірна, майдан&nbsp;Тараса&nbsp;Шевченка,&nbsp;33
+  phone_main: (034) 752 24 52
+  phone_hot:  (034) 752 24 29
+  phone_fax:  (034) 752 24 29
+  email: rada.nadvirna@ukr.net
+  www: http://msnad.if.ua/
+
+- type: district
+  item: rohatynskyy
+  name: Рога́тинська райо́нна&nbsp;рада
+  address: 77000, м. Рога́тин, вул.&nbsp;Галицька,&nbsp;65
+  phone_main: (034) 352 47 37
+  phone_hot:  (034) 352 48 00
+  phone_fax:  (034) 352 48 00
+  email: rogatun_rada@ukr.net
+  www: http://rohatynrada.if.ua/
+
+- type: district
+  item: rozhnyativskyy
+  name: Рожня́тівська райо́нна&nbsp;рада
+  address: 77600, с.м.т. Рожня́тів, вул.&nbsp;Шкільна,&nbsp;1
+  phone_main: (034) 742 18 74
+  phone_hot:  (034) 742 18 74
+  phone_fax:  (034) 742 18 74
+  email: 04054458@mail.gov.ua
+  www: https://radarozh.gov.ua/
+
+- type: district
+  item: snyatynskyy
+  name: Сня́тинська райо́нна&nbsp;рада
+  address: 78300, м. Сня́тин, площа&nbsp;Незалежності,&nbsp;1
+  phone_main: (034) 762 50 11
+  phone_hot:  (034) 762 13 31
+  phone_fax:  (034) 762 13 31
+  email: ada.snt@ukr.net
+  www: http://www.snyatynrada.gov.ua/
+
+- type: district
+  item: tlumatskyy
+  name: Тлу́мацька райо́нна&nbsp;рада
+  address: 78000, м. Тлу́мач, вул.&nbsp;Макуха,&nbsp;12
+  phone_main: (034) 792 41 04
+  phone_hot:  (034) 792 41 04
+  phone_fax:  (034) 792 41 04
+  email: tlumrada@ukr.net
+  www: http://tlumachrada.if.ua/
 
 - type: district
   item: tysmenytsia
@@ -149,6 +259,16 @@
   phone_fax:  (034) 362 44 14
   email: tysm.rairada@gmail.com
   www: немає даних
+
+- type: district
+  item: verkhovynskyy
+  name: Верхови́нська райо́нна&nbsp;рада
+  address: 78700, селище Верхови́на, вул.&nbsp;Івана&nbsp;Франка,&nbsp;20
+  phone_main: (034) 322 17 65
+  phone_hot:  (034) 322 23 24
+  phone_fax:  (034) 322 17 65
+  email: vr.rayrada@ukr.net
+  www: http://verhovyna-rada.at.ua/
 
 #
 # District / Town
