@@ -1,6 +1,48 @@
 {%- assign file = page.dir | remove_first: "/" | replace: "/", "-" | append: "list" -%}
 {%- for deputy in site.data[file] -%}
 {%- if forloop.first -%}
+<table
+  id="deputies"
+  data-locale="uk-UA"
+  data-toggle="table"
+  data-search="true"
+  data-sort-class="table-active"
+  data-sortable="true"
+  data-detail-view="true"
+  data-detail-view-icon="false"
+  data-detail-view-by-click="true"
+  data-detail-formatter="phonesDetailFormatter"
+  data-pagination="true"
+  data-buttons-class="primary">
+  <thead class="thead-rada">
+    <tr>
+      <th data-field="number" data-title="{{ site.data.labels.deputies_number }}">Nnumber</th>
+      <th data-field="name" data-sortable="true" data-title="{{ site.data.labels.deputies_name }}">Name</th>
+      {% comment %}<th data-field="about">{{ site.data.labels.deputies_about }}</th>{% endcomment %}
+    </tr>
+  </thead>
+  <tbody>
+{%- endif -%}
+    <tr>
+        <td>{{ deputy.number }}</td>
+        <td><span class="font-sm-weight-bold">{{ deputy.name }}</span></td>
+        <td>{% if deputy.okruh %}{{ site.data.labels.deputies_okruh }} - {{ deputy.okruh }}. {% endif %}{{ deputy.about }}</td>
+    </tr>
+{%- if forloop.last -%}
+  </tbody>
+</table>
+{%- endif -%}
+{%- else -%}
+<h4>{{ site.data.labels.deputies_no_data }}</h4>
+<p class="lead">{{ site.data.labels.deputies_no_data_alert }}</p>
+{%- endfor -%}
+<div class="row"><div class="col-12">{%- include back.html -%}</div></div>
+
+
+{% comment %}
+{%- assign file = page.dir | remove_first: "/" | replace: "/", "-" | append: "list" -%}
+{%- for deputy in site.data[file] -%}
+{%- if forloop.first -%}
 <div class="row font-weight-bold border-top pt-2 pb-2 d-none d-md-flex">
   <div class="col-md-1 col-lg-1">{{ site.data.labels.deputies_number }}</div>
   <div class="col-md-3 col-lg-3">{{ site.data.labels.deputies_name }}</div>
@@ -19,3 +61,4 @@
 <p class="lead">{{ site.data.labels.deputies_no_data_alert }}</p>
 {%- endfor -%}
 <div class="row"><div class="col-12">{%- include back.html -%}</div></div>
+{% endcomment %}
