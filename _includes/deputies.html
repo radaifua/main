@@ -8,17 +8,13 @@
   data-search="true"
   data-sort-class="table-active"
   data-sortable="true"
-  data-detail-view="true"
-  data-detail-view-icon="false"
-  data-detail-view-by-click="true"
-  data-detail-formatter="phonesDetailFormatter"
   data-pagination="true"
   data-buttons-class="primary">
   <thead class="thead-rada">
     <tr>
       <th data-field="number" data-title="{{ site.data.labels.deputies_number }}">Nnumber</th>
       <th data-field="name" data-sortable="true" data-title="{{ site.data.labels.deputies_name }}">Name</th>
-      {% comment %}<th data-field="about">{{ site.data.labels.deputies_about }}</th>{% endcomment %}
+      <th data-field="about" data-title="{{ site.data.labels.deputies_about }}">About</th>
     </tr>
   </thead>
   <tbody>
