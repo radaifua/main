@@ -49,4 +49,10 @@
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    max-width: 29%;
+    min-width: 30%;
 }
+
+// #deputies .bootstrap-table .fixed-table-container .table tbody tr .card-view .card-view-title {
+//   max-width: 29%;
+// }
