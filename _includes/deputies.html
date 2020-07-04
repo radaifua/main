@@ -35,7 +35,7 @@
   <p class="lead">{{ site.data.labels.deputies_no_data_alert }}</p>
   {%- endfor -%}
   <div class="row"><div class="col-12">{%- include back.html -%}</div></div>
-{%- elsif page.table == 2 %}
+{%- else -%}
   {%- assign file = page.dir | remove_first: "/" | replace: "/", "-" | append: "list" -%}
   {%- for deputy in site.data[file] -%}
   {%- if forloop.first -%}
