@@ -46,13 +46,17 @@
 }
 
 #deputies .card-views .card-view .card-view-title {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    max-width: 29%;
-    min-width: 30%;
+  display: none;
 }
 
-// #deputies .bootstrap-table .fixed-table-container .table tbody tr .card-view .card-view-title {
-//   max-width: 29%;
+#deputies .card-views .card-view div:first-child {
+  display: none;
+}
+
+// #deputies .card-views .card-view .card-view-title {
+//     overflow: hidden;
+//     text-overflow: ellipsis;
+//     white-space: nowrap;
+//     max-width: 29%;
+//     min-width: 30%;
 // }
