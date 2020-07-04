@@ -49,8 +49,8 @@
   display: none;
 }
 
-#deputies .card-views .card-view div:first-child {
-  display: none;
+#deputies .fixed-table-container .table tbody tr div.card-view:first-child {
+    display: none;
 }
 
 // #deputies .card-views .card-view .card-view-title {
