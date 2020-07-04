@@ -44,3 +44,9 @@
     border-radius: unset;
   }
 }
+
+#deputies .card-views .card-view .card-view-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
