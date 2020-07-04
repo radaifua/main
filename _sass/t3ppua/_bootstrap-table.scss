@@ -45,18 +45,5 @@
   }
 }
 
-#deputies .card-views .card-view .card-view-title {
-  display: none;
-}
-
-#deputies tbody tr div.card-view:first-child {
-  display: none;
-}
-
-// #deputies .card-views .card-view .card-view-title {
-//     overflow: hidden;
-//     text-overflow: ellipsis;
-//     white-space: nowrap;
-//     max-width: 29%;
-//     min-width: 30%;
-// }
+#deputies .card-views .card-view .card-view-title { display: none; }
+#deputies tbody tr div.card-view:first-child { display: none; }
