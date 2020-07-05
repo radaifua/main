@@ -21,7 +21,15 @@
         </span>
         {%- else -%}
         <a href="{{ one.url }}" class="list-group-item list-group-item-action">
-          {%- if one.navtitle -%}{{ one.navtitle }}{%- elsif one.breadcrumb -%}{{ one.breadcrumb }}{%- else -%}{{ one.title }}{%- endif -%}
+          {%- if one.navtitle -%}
+            {{ one.navtitle }}
+          {%- elsif one.breadcrumb -%}
+            {{ one.breadcrumb }}
+          {%- elsif one.url != page.url and contains "deputies" -%}
+            {{ one.url | split: "-" | first }}
+          {%- else -%}
+            {{ one.title }}
+          {%- endif -%}
         </a>
         {%- endif -%}
       {%- endif -%}
