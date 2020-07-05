@@ -10,7 +10,7 @@
         {%- if one.url == page.url -%}
         <span class="list-group-item list-group-item-action active">
           {%- if one.navtitle -%}
-            {%- if slug | split: "-" | first -%}
+            {%- if one.url contains "deputies" -%}
               {{ slug | split: "-" | first }}
             {%- else -%}
               {{ one.navtitle }}
@@ -24,7 +24,7 @@
         {%- else -%}
         <a href="{{ one.url }}" class="list-group-item list-group-item-action">
           {%- if one.navtitle -%}
-            {%- if slug | split: "-" | first -%}
+            {%- if one.url contains "deputies" -%}
               {{ slug | split: "-" | first }}
             {%- else -%}
               {{ one.navtitle }}
