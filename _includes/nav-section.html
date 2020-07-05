@@ -10,11 +10,13 @@
         {%- if one.url == page.url -%}
         <span class="list-group-item list-group-item-action active">
           {%- if one.navtitle -%}
-            {{ one.navtitle }} - {{ one.url | split: "/" | last | split: "-" | first }}
+            {%- if slug | split: "-" | first -%}
+              {{ slug | split: "-" | first }}
+            {%- else -%}
+              {{ one.navtitle }}
+            {%- endif -%}
           {%- elsif one.breadcrumb -%}
             {{ one.breadcrumb }}
-          {%- elsif one.url | split: "/" | last | split: "-" | first -%}
-            {{ one.url | split: "/" | last | split: "-" | first }}
           {%- else -%}
             {{ one.title }}
           {%- endif -%}
@@ -22,11 +24,13 @@
         {%- else -%}
         <a href="{{ one.url }}" class="list-group-item list-group-item-action">
           {%- if one.navtitle -%}
-            {{ one.navtitle }} - {{ one.url | split: "/" | last | split: "-" | first }}
+            {%- if slug | split: "-" | first -%}
+              {{ slug | split: "-" | first }}
+            {%- else -%}
+              {{ one.navtitle }}
+            {%- endif -%}
           {%- elsif one.breadcrumb -%}
             {{ one.breadcrumb }}
-          {%- elsif one.url | split: "/" | last | split: "-" | first -%}
-            {{ one.url | split: "/" | last | split: "-" | first }}
           {%- else -%}
             {{ one.title }}
           {%- endif -%}
