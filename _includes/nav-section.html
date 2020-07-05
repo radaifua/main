@@ -13,7 +13,7 @@
             {{ one.navtitle }}
           {%- elsif one.breadcrumb -%}
             {{ one.breadcrumb }}
-          {%- elsif one.url != page.url and contains "deputies" -%}
+          {%- elsif one.url != page.url and one.url contains "deputies" -%}
             {{ one.url | split: "-" | first }}
           {%- else -%}
             {{ one.title }}
@@ -25,7 +25,7 @@
             {{ one.navtitle }}
           {%- elsif one.breadcrumb -%}
             {{ one.breadcrumb }}
-          {%- elsif one.url != page.url and contains "deputies" -%}
+          {%- elsif one.url != page.url and one.url contains "deputies" -%}
             {{ one.url | split: "-" | first }}
           {%- else -%}
             {{ one.title }}
