@@ -7,8 +7,8 @@ layout: default
     <div class="col-12">
       <h1 class="text-center">{%- include footer/contact.html legal="name" -%}</h1>
       <h3>{{ site.data.labels.deputies | capitalize }} {{ page.breadcrumb | downcase }}</h3>
-      {%- include nav-section.html -%}
       <p class="lead">{%- include deputies-list-description.html url=page.url -%}</p>
+      {%- include nav-section.html -%}
       {%- include deputies.html -%}
     </div>
   </div>
