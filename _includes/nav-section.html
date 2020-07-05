@@ -13,7 +13,7 @@
             {{ one.navtitle }} - {{ one.url | split: "/" | last | split: "-" | first }}
           {%- elsif one.breadcrumb -%}
             {{ one.breadcrumb }}
-          {%- elsif one.url contains "deputies" -%}
+          {%- elsif one.url | split: "/" | last | split: "-" | first -%}
             {{ one.url | split: "/" | last | split: "-" | first }}
           {%- else -%}
             {{ one.title }}
@@ -25,7 +25,7 @@
             {{ one.navtitle }} - {{ one.url | split: "/" | last | split: "-" | first }}
           {%- elsif one.breadcrumb -%}
             {{ one.breadcrumb }}
-          {%- elsif one.url contains "deputies" -%}
+          {%- elsif one.url | split: "/" | last | split: "-" | first -%}
             {{ one.url | split: "/" | last | split: "-" | first }}
           {%- else -%}
             {{ one.title }}
