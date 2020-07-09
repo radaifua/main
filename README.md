@@ -1,1 +1,1 @@
-## Website template
+## Main template
