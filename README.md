@@ -1,1 +1,1 @@
-## Main template
+## Main HTML template
